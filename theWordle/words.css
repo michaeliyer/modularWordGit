@@ -25,7 +25,7 @@
     background-color: rgb(0, 0, 0);
   }
   
-.linkBack {
+#linkBack {
   margin-left: 1rem;
   color:rgb(136, 132, 132);
 }

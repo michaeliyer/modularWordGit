@@ -33,5 +33,6 @@
     }
 
     #linkBack {
-    color:rgb(255, 255, 255);
+        margin-left: 1rem;
+        color:rgb(136, 132, 132);
     }
