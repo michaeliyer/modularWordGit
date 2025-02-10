@@ -1,4 +1,4 @@
-import { oldWords } from './oldWords.js';
+import { allWords } from '../allWords.js';
 
 const letterValues = {
     A: 1, B: 3, C: 3, D: 2, E: 1, F: 4, G: 2, H: 4, I: 1,
@@ -60,7 +60,7 @@ function calculateScore() {
 
 
 
-    if (!wordList.includes(input)) {
+    if (!allWords.includes(input)) {
         totalScoreEl.innerText = "That's not a valid word!";
         return;
     }
@@ -137,7 +137,7 @@ function getScoreMessage(totalScore) {
 
 // Filter words by Scrabble score
 function filterWordsByScore(score) {
-    const wordsWithScore = wordList.filter(word => {
+    const wordsWithScore = allWords.filter(word => {
         let totalScore = 0;
         for (let char of word) {
             if (letterValues[char.toUpperCase()]) {
@@ -180,7 +180,7 @@ function analyzeVowelUsage() {
         vowelStats[vowel] = { count: 0, positions: [0, 0, 0, 0, 0] };
     });
 
-    wordList.forEach(word => {
+    allWords.forEach(word => {
         [...word.toUpperCase()].forEach((char, index) => {
             if (vowels.includes(char)) {
                 vowelStats[char].count++;
@@ -210,7 +210,7 @@ function analyzeLetterFrequency() {
     const positionTotals = [0, 0, 0, 0, 0]; // Tracks the number of words with each position available
 
     // Loop through each word in the word list
-    wordList.forEach((word) => {
+    allWords.forEach((word) => {
         [...word.toUpperCase()].forEach((letter, index) => {
             // Increment position availability
             if (index < 5) positionTotals[index]++;
@@ -304,7 +304,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // Filter words by letter and position
 function filterWordsByLetterAndPosition(letter, position) {
     const positionIndex = position - 1; // Convert position to zero-based index
-    return wordList.filter(word => word[positionIndex] === letter.toUpperCase());
+    return allWords.filter(word => word[positionIndex] === letter.toUpperCase());
 }
 
 // Display filtered words and their count based on letter and position
@@ -336,7 +336,7 @@ function displayWordsByLetterAndPosition() {
 document.getElementById("filterByLetterAndPosition").addEventListener("click", displayWordsByLetterAndPosition);
 
 
-console.log(wordList);
+console.log(allWords);
 
 
 document.getElementById("footerClocks").style.border = "1px solid #ccc"; // Example of targeting the new ID 
