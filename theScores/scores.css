@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h2 {
+    cursor: pointer;
+    color: #007bff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#scoreDropdown {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 16px;
+    display: none; /* ✅ Ensures it starts hidden */
+}
+
+#scoreField {
+    display: inline-block;
+    color: white;
+    background-color: red;
+    margin-top: 20px;
+    font-size: 2rem;
+    width: 35rem;
+    padding-left: 1rem;
+    text-align: center;
+}
+
+/* Monthly Stats Section */
+.score-stats {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+#statsResults {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Export Button */
+#exportButton {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#exportButton:hover {
+    background-color: #0056b3;
+}
+
+.linkBack {
+    margin-left: 1rem;
+    color:rgb(136, 132, 132);
+  }
