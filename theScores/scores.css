@@ -34,7 +34,7 @@ h2 {
 .score-stats {
     margin-top: 20px;
     padding: 10px;
-    background-color: #f4f4f4;
+    background-color: #4a71e6;
     border-radius: 10px;
     /* display: inline-block; */
     align-items: center;
@@ -65,5 +65,10 @@ h2 {
 
 #linkBack {
     margin-left: 1rem;
-    color:rgb(11, 84, 21);
-  }
+    color:rgb(20, 200, 44);
+}
+
+.scoreByLetter {
+    color:rgb(158, 20, 200)
+}
+
