@@ -339,7 +339,7 @@ document.getElementById("filterByLetterAndPosition").addEventListener("click", d
 console.log(allWords);
 
 
-document.getElementById("footerClocks").style.border = "1px solid #ccc"; // Example of targeting the new ID 
+// document.getElementById("footerClocks").style.border = "1px solid #ccc"; // Example of targeting the new ID 
 // Function to format time in the "HH:MM:SS" format
 function formatTime(date) {
   const hours = date.getHours().toString().padStart(2, "0");

@@ -21,21 +21,36 @@ function analyzeLetterFrequency() {
 }
 
 // Display clickable letters with their occurrence count
-function displayLetterFrequency() {
+function displayLetterDropdown() {
     const { letterStats } = analyzeLetterFrequency();
-    const outputDiv = document.getElementById("letterFrequencyOutput");
+    const dropdown = document.getElementById("letterDropdown");
 
-    outputDiv.innerHTML = "<strong>Click a letter:</strong><br>";
+    dropdown.innerHTML = '<option value="">-- Select a letter --</option>'; // Default option
+
     Object.keys(letterStats).forEach(letter => {
-        const letterLink = document.createElement("a");
-        letterLink.href = "#";
-        letterLink.textContent = `${letter} (${letterStats[letter].total})`;
-        letterLink.setAttribute("data-letter", letter);
-        outputDiv.appendChild(letterLink);
-        outputDiv.appendChild(document.createTextNode(" "));
-        outputDiv.style.color = "rgb(5, 20, 86)";
+        const option = document.createElement("option");
+        option.value = letter;
+        option.textContent = `${letter} (${letterStats[letter].total})`;
+        dropdown.appendChild(option);
     });
+
+    console.log("✅ Dropdown populated with letters.");
 }
+// function displayLetterFrequency() {
+//     const { letterStats } = analyzeLetterFrequency();
+//     const outputDiv = document.getElementById("letterFrequencyOutput");
+
+//     outputDiv.innerHTML = "<strong>Click a letter:</strong><br>";
+//     Object.keys(letterStats).forEach(letter => {
+//         const letterLink = document.createElement("a");
+//         letterLink.href = "#";
+//         letterLink.textContent = `${letter} (${letterStats[letter].total})`;
+//         letterLink.setAttribute("data-letter", letter);
+//         outputDiv.appendChild(letterLink);
+//         outputDiv.appendChild(document.createTextNode(" "));
+//         outputDiv.style.color = "rgb(5, 20, 86)";
+//     });
+// }
 
 // Display words containing selected letter
 function displayWordsByLetter(letter) {
@@ -100,14 +115,22 @@ function highlightLetterAtPosition() {
 
 // Attach event listeners
 document.addEventListener("DOMContentLoaded", () => {
-    displayLetterFrequency();
+    displayLetterDropdown();
+    // displayLetterFrequency();
 
-    document.getElementById("letterFrequencyOutput").addEventListener("click", event => {
-        if (event.target.tagName === "A") {
-            const letter = event.target.getAttribute("data-letter");
+    document.getElementById("letterDropdown").addEventListener("change", function () {
+        const letter = this.value;
+        if (letter) {
             displayWordsByLetter(letter);
         }
     });
+
+    // document.getElementById("letterFrequencyOutput").addEventListener("click", event => {
+    //     if (event.target.tagName === "A") {
+    //         const letter = event.target.getAttribute("data-letter");
+    //         displayWordsByLetter(letter);
+    //     }
+    // });
 
     document.getElementById("highlightButton").addEventListener("click", highlightLetterAtPosition);
 
@@ -148,3 +171,4 @@ document.addEventListener("DOMContentLoaded", () => {
 //     } else {
 //         console.warn("⚠️ Could not find .toggleShow or #hidden elements!");
 //     }
+

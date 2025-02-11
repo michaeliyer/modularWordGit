@@ -7,12 +7,12 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    left: 25px;
+    right: 6rem;
     top: 8px;
     }
     
     .highlight {
-    color: rgb(44, 6, 125);
+    color: rgb(237, 233, 240);
     font-style: italic;
     font-weight: bold;
     }
@@ -28,7 +28,19 @@
     border-radius: .35rem;
     padding: .05rem;
     position: relative;
-    right: -390px;
+    right: -15rem;
+    }
+
+    #letterDropdown {
+        width: 5rem;
+        position: relative;
+        right: -29rem;
+        top: -4.5rem;
+        font-family: "Patua One", serif;
+        color: rgb(6, 43, 95);
+        background-color: rgb(118, 100, 238);
+        border: solid .2rem rgb(30, 13, 188);
+        border-radius: .35rem;
     }
     
     body {
@@ -43,9 +55,8 @@
     color: rgb(4, 151, 14);
     }
     
-    #letterFrequencyOutput,
     #letterSearchResults  {
-    color: rgb(15, 68, 142);
+    color: rgb(18, 4, 50);
     }
     
     .posInput {
@@ -53,7 +64,7 @@
         position: relative;
         right: -150px;
         position: relative;
-        left: 245px;
+        left: 285px;
         top: 45px;
     }
 
