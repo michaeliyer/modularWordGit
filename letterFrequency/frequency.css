@@ -6,7 +6,7 @@
     }
     
     .highlight {
-    color: rgb(90, 114, 147);
+    color: rgb(139, 159, 188);
     font-style: italic;
     font-weight: bold;
     }
@@ -25,7 +25,7 @@
     
     #letterFrequencyOutput,
     #letterSearchResults  {
-    color: rgb(21, 98, 198);
+    color: rgb(9, 65, 137);
     }
     
     .posInput {
