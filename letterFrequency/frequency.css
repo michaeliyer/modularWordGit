@@ -16,7 +16,7 @@
     font-family: "Patua One", serif;
     font-weight: 400;
     font-style: normal;
-    background-color: rgb(46, 28, 168);
+    background-color: rgb(115, 98, 226);
     }
 
     h2 {
@@ -25,7 +25,7 @@
     
     #letterFrequencyOutput,
     #letterSearchResults  {
-    color: rgb(12, 37, 71);
+    color: rgb(15, 68, 142);
     }
     
     .posInput {
