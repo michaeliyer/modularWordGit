@@ -1,12 +1,12 @@
 .letter-list a {
     text-decoration: underline;
-    color: rgb(10, 124, 238);
+    color: rgb(4, 151, 14);
     margin-right: 10px;
     cursor: pointer;
     }
     
     .highlight {
-    color: rgb(204, 218, 237);
+    color: rgb(90, 114, 147);
     font-style: italic;
     font-weight: bold;
     }
@@ -16,7 +16,7 @@
     font-family: "Patua One", serif;
     font-weight: 400;
     font-style: normal;
-    background-color: rgb(54, 25, 47);
+    background-color: rgb(46, 28, 168);
     }
 
     h2 {
@@ -25,14 +25,14 @@
     
     #letterFrequencyOutput,
     #letterSearchResults  {
-    color: rgb(77, 95, 71);
+    color: rgb(21, 98, 198);
     }
     
     .posInput {
-        color: rgb(71, 175, 175);
+    color: rgb(71, 175, 175);
     }
 
     #linkBack {
-        margin-left: 1rem;
-        color:rgb(136, 132, 132);
+    margin-left: 1rem;
+    color:rgb(136, 132, 132);
     }
