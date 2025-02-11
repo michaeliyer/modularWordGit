@@ -1,9 +1,70 @@
 body {
     background-color: rgb(37, 37, 173);
-    color: whitesmoke;
+}
+
+h1 {
+  font-family: "Luckiest Guy", serif;
+  text-align: center;
+  margin-top: 2rem;
+  color:rgb(222, 198, 16);
+}
+
+.linkBlock {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 50%;
+    margin-left: 20rem;
+}
+
+#hidden {
+    display: none; /* Default is hidden */
+}
+
+#hidden.show {
+    display: grid; /* Reveals when class is toggled */
 }
 
 #linkBack {
-    margin-left: 1rem;
-    color:rgb(136, 132, 132);
+  font-family: "Bangers", serif;    
+  margin-left: 1rem;
+  color:rgb(222, 112, 16);
+  background-color: rgb(42, 61, 119);
+  border: solid .2rem rgb(222, 112, 16);
+  border-radius: .3rem;
+  padding: .2rem;
+  text-decoration: none;
+  text-align: center;
+  max-width: 12rem;
   }
+
+  .toggleShow {
+    cursor: pointer;
+  }
+
+  .highlighted-word {
+    font-family: "Kaushan Script", serif;
+    color: rgb(235, 25, 10);
+    font-weight: bold;
+    /* padding: 2px 4px; */
+    /* border-radius: 4px; */
+}
+
+
+/* Responsive Font Size */
+@media screen and (max-width: 768px) { /* Phones & tablets */
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #linkBack {
+        font-size: 1rem;
+        padding: 0.5rem;
+        text-align: center;
+    }
+}
+
+/* Fix Hover for Mobile */
+#linkBack:active, #linkBack:focus {
+    background-color: orange; /* Alternative highlight for touch */
+}
