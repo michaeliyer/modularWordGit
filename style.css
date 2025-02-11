@@ -50,21 +50,3 @@ h1 {
     /* border-radius: 4px; */
 }
 
-
-/* Responsive Font Size */
-@media screen and (max-width: 768px) { /* Phones & tablets */
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    #linkBack {
-        font-size: 1rem;
-        padding: 0.5rem;
-        text-align: center;
-    }
-}
-
-/* Fix Hover for Mobile */
-#linkBack:active, #linkBack:focus {
-    background-color: orange; /* Alternative highlight for touch */
-}
