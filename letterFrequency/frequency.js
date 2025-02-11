@@ -33,6 +33,7 @@ function displayLetterFrequency() {
         letterLink.setAttribute("data-letter", letter);
         outputDiv.appendChild(letterLink);
         outputDiv.appendChild(document.createTextNode(" "));
+        outputDiv.style.color = "rgb(5, 20, 86)";
     });
 }
 
@@ -109,4 +110,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("highlightButton").addEventListener("click", highlightLetterAtPosition);
+
+    console.log("✅ JavaScript is running!");
+
+    const buttonShow = document.querySelector(".toggleShow");
+    const linkBlock = document.querySelector("#hidden");
+
+    if (buttonShow && linkBlock) {
+        buttonShow.addEventListener("click", () => {
+            linkBlock.classList.toggle("show");
+            console.log("🔄 Toggled linkBlock visibility");
+
+            // Delay execution to ensure elements are visible before modifying them
+            setTimeout(highlightLinks, 100);
+        });
+    } else {
+        console.warn("⚠️ Could not find .toggleShow or #hidden elements!");
+    }
+
+
 });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     console.log("✅ JavaScript is running!");
+
+//     const buttonShow = document.querySelector(".toggleShow");
+//     const linkBlock = document.querySelector("#hidden");
+
+//     if (buttonShow && linkBlock) {
+//         buttonShow.addEventListener("click", () => {
+//             linkBlock.classList.toggle("show");
+//             console.log("🔄 Toggled linkBlock visibility");
+
+//             // Delay execution to ensure elements are visible before modifying them
+//             setTimeout(highlightLinks, 100);
+//         });
+//     } else {
+//         console.warn("⚠️ Could not find .toggleShow or #hidden elements!");
+//     }

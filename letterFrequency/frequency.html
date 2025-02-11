@@ -14,12 +14,13 @@
     <a href="../theScores/scores.html" id="linkBack">Some Cool Score Stats</a>
     <a href="../theWordle/words.html" id="linkBack">Filter Away</a>
 
-    <h2>Letter Frequency Highlighter</h2>
-    <label for="positionInput" class="posInput">Enter Position (1-5):</label>
-    <input type="number" id="positionInput" min="1" max="5">
-    <button id="highlightButton">Highlight</button>
-    <div id="letterFrequencyOutput" class="letter-list"></div>
-
+    <h2 class="toggleShow">Letter Frequency Highlighter</h2>
+    <div class="linkBlock" id="hidden">
+        <label for="positionInput" class="posInput">Enter Position (1-5):</label>
+        <input type="number" id="positionInput" min="1" max="5">
+        <button id="highlightButton">Highlight</button>
+        <div id="letterFrequencyOutput" class="letter-list"></div>
+    </div>
     <div id="letterSearchResults"></div>
 
 
