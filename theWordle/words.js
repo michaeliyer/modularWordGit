@@ -84,7 +84,7 @@ import { oldWords } from '../oldWords.js';
         'PROOF', 'PRUDE', 'PUBIC', 'PUDGY', 'PUFFY', 'PULSE', 'PUNCH', 
         'PUPPY', 'PUREE', 'PURER', 'PURSE', 'PUSHY', 'PUTTY', 'PYGMY', 'QUACK', 'QUAIL', 'QUAKE',
         'QUARK', 'QUASH', 'QUASI', 'QUEER', 'QUELL', 'QUILL', 'QUILT', 'QUOTA', 'QUOTH',
-        'RABBI', 'RABID', 'RACER', 'RADAR', 'RADII', 'RAJAH', 'RALLY', 'RALPH', 'RANDY', 'RAPID',
+        'RABBI', 'RABID', 'RACER', 'RADAR', 'RADII', 'RAJAH', 'RALLY', 'RALPH', 'RANDY', 
         'RARER', 'RASPY', 'RATTY', 'RAVEN', 'RAZOR', 'REARM', 'REBAR', 
         'RECUT', 'REEDY', 'REFIT', 'REHAB', 'REIGN', 'RELAY', 'REMIT',
         'RENAL', 'REPLY', 'RESET', 'REUSE', 'RICER', 'RIFLE', 'RIGID',
