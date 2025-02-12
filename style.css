@@ -52,7 +52,7 @@ h1 {
 
 /* ADD MEDIA QUERY */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .linkBlock {
         grid-template-columns: 1fr;
         gap: 1rem;
