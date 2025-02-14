@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Calistoga", serif;
     text-align: center;
     margin-top: 50px;
     background-color: rgb(45, 45, 228);
@@ -64,7 +64,18 @@ h2 {
     background-color: #0056b3;
 }
 
+.linkBlock {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 #linkBack {
+    font-family: "Titan One", serif;
+    text-decoration: none;
+    background-color: rgb(158, 20, 200);
+    border: .25rem solid rgb(158, 20, 200);
+    border-radius: .75rem;
     margin-left: 1rem;
     color:rgb(20, 200, 44);
 }

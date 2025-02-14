@@ -30,7 +30,7 @@ import { oldWords } from '../oldWords.js';
         'CUTIE', 'CYCLE', 'DAILY', 'DAIRY', 'DALLY', 'DATUM', 'DAUNT', 'DEALT', 'DEBAR',
         'DECOR', 'DEFER', 'DEIGN', 'DEITY', 
         'DEMON', 'DEMUR', 'DENSE', 'DERBY', 'DETOX', 'DEUCE', 'DILLY', 'DIMLY',
-        'DIODE', 'DIRGE', 'DIRTY', 'DITCH', 'DITTY', 'DIVER', 'DIZZY', 'DODGY',
+        'DIODE', 'DIRGE', 'DIRTY', 'DITCH', 'DIVER', 'DIZZY', 'DODGY',
         'DOPEY', 'DOUGH', 'DOWDY', 'DOWEL', 'DOWNY', 'DRAKE', 'DRAMA',
         'DRANK', 'DRAPE', 'DRAWL', 'DREAD', 'DRESS', 'DRIED', 'DRIER', 'DRIFT', 'DRILL',
         'DROIT', 'DRONE', 'DROSS', 'DROWN', 'DRUID', 'DRUNK', 'DRYER', 'DRYLY',

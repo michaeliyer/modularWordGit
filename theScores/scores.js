@@ -148,7 +148,7 @@ import { oldWords } from '../oldWords.js';
         }
     
         function getMonthName(monthNum) {
-            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "Decemeber"];
             return months[parseInt(monthNum) - 1] || "Unknown";
         }
     
