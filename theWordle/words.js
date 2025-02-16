@@ -25,7 +25,7 @@ import { oldWords } from '../oldWords.js';
         'CLOUT', 'CLOVE', 'CLUED', 'CLUMP', 'CLUNG', 'COBRA', 'COLOR', 'COMFY', 'COMIC', 'CONCH',
         'COPSE', 'CORAL', 'COUCH', 'COUGH', 'COUPE', 'COVEN', 'COVEY', 'CRACK', 'CRASH',
         'CREAM', 'CREED', 'CREEK', 'CREEP', 'CREME', 'CRESS', 'CREST', 'CRICK',
-        'CRIED', 'CRIER', 'CROCK', 'CRONY', 'CROOK', 'CROUP', 'CRUDE',
+        'CRIED', 'CRIER', 'CROCK', 'CRONY', 'CROUP', 'CRUDE',
         'CRUEL', 'CRUMP', 'CUBIC', 'CURIO', 'CURRY', 'CURSE', 'CURVE', 'CURVY',
         'CUTIE', 'CYCLE', 'DAILY', 'DAIRY', 'DALLY', 'DATUM', 'DAUNT', 'DEALT', 'DEBAR',
         'DECOR', 'DEFER', 'DEIGN', 'DEITY', 
