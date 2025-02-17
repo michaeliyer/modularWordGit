@@ -1,5 +1,6 @@
 import { allWords } from '../allWords.js';
 
+
 // Analyze letter frequency in allWords
 function analyzeLetterFrequency() {
     const letterStats = {};
