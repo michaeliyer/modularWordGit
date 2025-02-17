@@ -114,7 +114,7 @@ import { oldWords } from '../oldWords.js';
         'TANGO', 'TAROT', 'TATTY', 'TEDDY', 'TEETH', 'TENET', 'TENOR', 'TENSE', 'TEPEE', 
         'TERRA', 'TESTY', 'THEFT', 'THETA', 'THICK', 'THONG', 'THROB', 
         'THRUM', 'TIGHT', 'TIMER', 'TODDY', 'TOKEN', 'TONAL',
-        'TONER', 'TONGA', 'TORUS', 'TOWER', 'TRACK', 'TRAIL',
+        'TONER', 'TONGA', 'TORUS', 'TOWER', 'TRACK', 
         'TRAMP', 'TREAD', 'TRIAL', 'TRIBE', 'TRICK', 'TRIED', 'TRIPE', 'TROOP', 'TROUT', 'TRUCE',
         'TRUCK', 'TRUER', 'TRUMP', 'TRUNK', 'TUBAL', 'TUBER', 'TULIP', 'TULLE', 'TUMOR',
         'TURBO', 'TWEET', 'TWIXT', 'TYING', 'UMBRA', 'UNCUT', 'UNDID',

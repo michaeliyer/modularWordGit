@@ -8036,4 +8036,10 @@ export const oldWords = [
     myScore: 5,
     wordNumber: 1338,
   },
+  {
+    word: "TRAIL",
+    gameDate: "2/17/25",
+    myScore: 3,
+    wordNumber: 1339,
+  },
 ];
