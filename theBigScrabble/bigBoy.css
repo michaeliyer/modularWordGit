@@ -65,7 +65,7 @@ h1, h2 {
     margin-top: 20px;
 }
 
-#output, #wordListOutput {
+#output, #allWordsOutput {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -122,7 +122,7 @@ input, button {
 }
 
 #letterPositionOutput,
-#wordListOutput
+#allWordsOutput
  {
     font-size: 10px;
     color: rgb(91, 46, 176);

@@ -8,12 +8,12 @@ const letterValues = {
 
 // Filter words by prefix
 function filterWordsByPrefix(prefix) {
-    return wordList.filter(word => word.startsWith(prefix.toUpperCase()));
+    return allWords.filter(word => word.startsWith(prefix.toUpperCase()));
 }
 
 // Display filtered words and word count
 function displayFilteredWords(prefix) {
-    const resultDiv = document.getElementById('wordListOutput');
+    const resultDiv = document.getElementById('allWordsOutput');
     const words = filterWordsByPrefix(prefix);
     const wordCount = words.length; // Calculate the word count
 
