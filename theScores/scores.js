@@ -148,10 +148,16 @@ function calculateStats() {
     let avgTotalScore = (totalCumulativeScore / cumulativeData.length).toFixed(6);
 
     // 6️⃣ Display the results
+    // statsResults.innerHTML = `
+    //     <p>Games in ${getMonthName(selectedMonth)}/${selectedYear}: <strong>${filteredData.length}</strong></p>
+    //     <p>Avg Score for Selected Month: <strong>${avgMonthScore}</strong></p>
+    //     <p>Avg Score from Start to ${getMonthName(selectedMonth)}/${selectedYear} (Excluding 0s): <strong>${avgTotalScore}</strong></p>
+    // `;
+
     statsResults.innerHTML = `
-        <p>Games in ${getMonthName(selectedMonth)}/${selectedYear}: <strong>${filteredData.length}</strong></p>
-        <p>Avg Score for Selected Month: <strong>${avgMonthScore}</strong></p>
-        <p>Avg Score from Start to ${getMonthName(selectedMonth)}/${selectedYear} (Excluding 0s): <strong>${avgTotalScore}</strong></p>
+        <p>You have played <strong>${filteredData.length}</strong> games in ${getMonthName(selectedMonth)},  ${selectedYear} ! </p>
+        <p>Your average score for ${getMonthName(selectedMonth)},  ${selectedYear}: <strong>${avgMonthScore}</strong> !</p>
+        <p>Your average score from Day 1 to ${getMonthName(selectedMonth)},  ${selectedYear}: <strong>${avgTotalScore}</strong> !</p>
     `;
 }
 
