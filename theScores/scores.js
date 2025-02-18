@@ -50,92 +50,205 @@ import { oldWords } from '../oldWords.js';
     
             console.log("Score dropdown event listener attached.");
         }
+ 
+        
+
+        
+//         THIS DEALS WITH DATE FORMATS PROPERLY   ⬇️
+// // ✅ Fix: Prevent duplicate entries in dropdowns
+function populateDropdowns() {
+    let uniqueMonths = new Set();
+    let uniqueYears = new Set();
+
+    oldWords.forEach(entry => {
+        // Normalize date format
+        let [month, , year] = entry.gameDate.split("/");
+        month = month.padStart(2, "0");
+        year = year.length === 2 ? "20" + year : year;
+
+        uniqueMonths.add(month);
+        uniqueYears.add(year);
+    });
+
+    // Clear previous options before adding new ones
+    monthDropdown.innerHTML = `<option value="" disabled selected>Select Month</option>`;
+    yearDropdown.innerHTML = `<option value="" disabled selected>Select Year</option>`;
+
+    // Sort and populate dropdowns
+    [...uniqueMonths].sort((a, b) => a - b).forEach(month => {
+        let option = document.createElement("option");
+        option.value = month;
+        option.textContent = getMonthName(month);
+        monthDropdown.appendChild(option);
+    });
+
+    [...uniqueYears].sort((a, b) => a - b).forEach(year => {
+        let option = document.createElement("option");
+        option.value = year;
+        option.textContent = year;
+        yearDropdown.appendChild(option);
+    });
+
+    console.log("Dropdowns populated.");
+}
+
+
+
+
+function calculateStats() {
+    let selectedMonth = monthDropdown.value;
+    let selectedYear = yearDropdown.value;
+
+    if (!selectedMonth || !selectedYear) {
+        statsResults.innerHTML = "Please select both a month and a year.";
+        return;
+    }
+
+    // 1️⃣ Filter games for the selected month/year
+    let filteredData = oldWords.filter(entry => {
+        // Normalize date format
+        let [month, , year] = entry.gameDate.split("/");
+        month = month.padStart(2, "0");
+        year = year.length === 2 ? "20" + year : year;
+
+        return month === selectedMonth && year === selectedYear;
+    });
+
+    // 2️⃣ Filter games from the start through the selected month/year (EXCLUDING `myScore === 0`)
+    let cumulativeData = oldWords.filter(entry => {
+        // Normalize date format
+        let [month, , year] = entry.gameDate.split("/");
+        month = month.padStart(2, "0");
+        year = year.length === 2 ? "20" + year : year;
+
+        return ((year < selectedYear) || (year === selectedYear && month <= selectedMonth)) && entry.myScore > 0;
+    });
+
+    // 3️⃣ Handle cases where no data exists
+    if (filteredData.length === 0) {
+        statsResults.innerHTML = `No data available for ${getMonthName(selectedMonth)}/${selectedYear}.`;
+        return;
+    }
+
+    // 4️⃣ Calculate the average score for the selected month/year (INCLUDING `myScore === 0`)
+    let totalMonthScore = filteredData.reduce((sum, entry) => sum + entry.myScore, 0);
+    let avgMonthScore = (totalMonthScore / filteredData.length).toFixed(6);
+
+    // 5️⃣ Calculate the total average score through the selected month/year (EXCLUDING `myScore === 0`)
+    if (cumulativeData.length === 0) {
+        statsResults.innerHTML = `
+            <p>Games in ${getMonthName(selectedMonth)}/${selectedYear}: <strong>${filteredData.length}</strong></p>
+            <p>Avg Score for Selected Month: <strong>${avgMonthScore}</strong></p>
+            <p>No valid scores for cumulative average (All past games were unplayed).</p>
+        `;
+        return;
+    }
+
+    let totalCumulativeScore = cumulativeData.reduce((sum, entry) => sum + entry.myScore, 0);
+    let avgTotalScore = (totalCumulativeScore / cumulativeData.length).toFixed(6);
+
+    // 6️⃣ Display the results
+    statsResults.innerHTML = `
+        <p>Games in ${getMonthName(selectedMonth)}/${selectedYear}: <strong>${filteredData.length}</strong></p>
+        <p>Avg Score for Selected Month: <strong>${avgMonthScore}</strong></p>
+        <p>Avg Score from Start to ${getMonthName(selectedMonth)}/${selectedYear} (Excluding 0s): <strong>${avgTotalScore}</strong></p>
+    `;
+}
+
+
+
+
+//     REPLACED THIS --- THE ABOVE HANDLES ALL DATE FORMATS I'VE USED!
+//         function populateDropdowns() {
+//             let uniqueMonths = new Set();
+//             let uniqueYears = new Set();
     
-        // ✅ Fix: Prevent duplicate entries in dropdowns
-        function populateDropdowns() {
-            let uniqueMonths = new Set();
-            let uniqueYears = new Set();
+//             oldWords.forEach(entry => {
+// // let parts = entry.gameDate.split("/");
+// // let month = parts[0].padStart(2, "0"); // Ensure "1" becomes "01"
+// // let year = parts[2].length === 2 ? "20" + parts[2] : parts[2]; // Convert "24" to "2024"
+//                 let [month, , year] = entry.gameDate.split("/");
+//                 uniqueMonths.add(month);
+//                 uniqueYears.add(year);
+//             });
     
-            oldWords.forEach(entry => {
-                let [month, , year] = entry.gameDate.split("/");
-                uniqueMonths.add(month);
-                uniqueYears.add(year);
-            });
+//             // ✅ Clear previous options before adding new ones
+//             monthDropdown.innerHTML = `<option value="" disabled selected>Select Month</option>`;
+//             yearDropdown.innerHTML = `<option value="" disabled selected>Select Year</option>`;
     
-            // ✅ Clear previous options before adding new ones
-            monthDropdown.innerHTML = `<option value="" disabled selected>Select Month</option>`;
-            yearDropdown.innerHTML = `<option value="" disabled selected>Select Year</option>`;
+//             // ✅ Sort and populate dropdowns
+//             [...uniqueMonths].sort((a, b) => a - b).forEach(month => {
+//                 let option = document.createElement("option");
+//                 option.value = month;
+//                 option.textContent = getMonthName(month);
+//                 monthDropdown.appendChild(option);
+//             });
     
-            // ✅ Sort and populate dropdowns
-            [...uniqueMonths].sort((a, b) => a - b).forEach(month => {
-                let option = document.createElement("option");
-                option.value = month;
-                option.textContent = getMonthName(month);
-                monthDropdown.appendChild(option);
-            });
+//             [...uniqueYears].sort((a, b) => a - b).forEach(year => {
+//                 let option = document.createElement("option");
+//                 option.value = year;
+//                 option.textContent = "20" + year;
+//                 yearDropdown.appendChild(option);
+//             });
     
-            [...uniqueYears].sort((a, b) => a - b).forEach(year => {
-                let option = document.createElement("option");
-                option.value = year;
-                option.textContent = "20" + year;
-                yearDropdown.appendChild(option);
-            });
+//             console.log("Dropdowns populated.");
+//         }
     
-            console.log("Dropdowns populated.");
-        }
-    
-        // ✅ Fix: Calculate stats properly
-        function calculateStats() {
-          let selectedMonth = monthDropdown.value;
-          let selectedYear = yearDropdown.value;
+//         // ✅ Fix: Calculate stats properly
+//         function calculateStats() {
+//           let selectedMonth = monthDropdown.value;
+//           let selectedYear = yearDropdown.value;
       
-          if (!selectedMonth || !selectedYear) {
-              statsResults.innerHTML = "Please select both a month and a year.";
-              return;
-          }
+//           if (!selectedMonth || !selectedYear) {
+//               statsResults.innerHTML = "Please select both a month and a year.";
+//               return;
+//           }
       
-          // ✅ 1️⃣ Filter games for the selected month/year
-          let filteredData = oldWords.filter(entry => {
-              let [month, , year] = entry.gameDate.split("/");
-              return month === selectedMonth && year === selectedYear;
-          });
+//           // ✅ 1️⃣ Filter games for the selected month/year
+//           let filteredData = oldWords.filter(entry => {
+// // let parts = entry.gameDate.split("/");
+// // let month = parts[0].padStart(2, "0"); // Ensure "1" becomes "01"
+// // let year = parts[2].length === 2 ? "20" + parts[2] : parts[2]; // Convert "24" to "2024"
+//               let [month, , year] = entry.gameDate.split("/");
+//               return month === selectedMonth && year === selectedYear;
+//           });
       
-          // ✅ 2️⃣ Filter games from the start through the selected month/year (EXCLUDING `myScore === 0`)
-          let cumulativeData = oldWords.filter(entry => {
-              let [month, , year] = entry.gameDate.split("/");
-              return ((year < selectedYear) || (year === selectedYear && month <= selectedMonth)) && entry.myScore > 0;
-          });
+//           // ✅ 2️⃣ Filter games from the start through the selected month/year (EXCLUDING `myScore === 0`)
+//           let cumulativeData = oldWords.filter(entry => {
+//               let [month, , year] = entry.gameDate.split("/");
+//               return ((year < selectedYear) || (year === selectedYear && month <= selectedMonth)) && entry.myScore > 0;
+//           });
       
-          // ✅ 3️⃣ Handle cases where no data exists
-          if (filteredData.length === 0) {
-              statsResults.innerHTML = `No data available for ${getMonthName(selectedMonth)}/20${selectedYear}.`;
-              return;
-          }
+//           // ✅ 3️⃣ Handle cases where no data exists
+//           if (filteredData.length === 0) {
+//               statsResults.innerHTML = `No data available for ${getMonthName(selectedMonth)}/20${selectedYear}.`;
+//               return;
+//           }
       
-          // ✅ 4️⃣ Calculate the average score for the selected month/year (INCLUDING `myScore === 0`)
-          let totalMonthScore = filteredData.reduce((sum, entry) => sum + entry.myScore, 0);
-          let avgMonthScore = (totalMonthScore / filteredData.length).toFixed(6);
+//           // ✅ 4️⃣ Calculate the average score for the selected month/year (INCLUDING `myScore === 0`)
+//           let totalMonthScore = filteredData.reduce((sum, entry) => sum + entry.myScore, 0);
+//           let avgMonthScore = (totalMonthScore / filteredData.length).toFixed(6);
       
-          // ✅ 5️⃣ Calculate the total average score through the selected month/year (EXCLUDING `myScore === 0`)
-          if (cumulativeData.length === 0) {
-              statsResults.innerHTML = `
-                  <p>Games in ${getMonthName(selectedMonth)}/20${selectedYear}: <strong>${filteredData.length}</strong></p>
-                  <p>Avg Score for Selected Month: <strong>${avgMonthScore}</strong></p>
-                  <p>No valid scores for cumulative average (All past games were unplayed).</p>
-              `;
-              return;
-          }
+//           // ✅ 5️⃣ Calculate the total average score through the selected month/year (EXCLUDING `myScore === 0`)
+//           if (cumulativeData.length === 0) {
+//               statsResults.innerHTML = `
+//                   <p>Games in ${getMonthName(selectedMonth)}/20${selectedYear}: <strong>${filteredData.length}</strong></p>
+//                   <p>Avg Score for Selected Month: <strong>${avgMonthScore}</strong></p>
+//                   <p>No valid scores for cumulative average (All past games were unplayed).</p>
+//               `;
+//               return;
+//           }
       
-          let totalCumulativeScore = cumulativeData.reduce((sum, entry) => sum + entry.myScore, 0);
-          let avgTotalScore = (totalCumulativeScore / cumulativeData.length).toFixed(6);
+//           let totalCumulativeScore = cumulativeData.reduce((sum, entry) => sum + entry.myScore, 0);
+//           let avgTotalScore = (totalCumulativeScore / cumulativeData.length).toFixed(6);
       
-          // ✅ 6️⃣ Display the results
-          statsResults.innerHTML = `
-              <p>Games in ${getMonthName(selectedMonth)}/20${selectedYear}: <strong>${filteredData.length}</strong></p>
-              <p>Avg Score for Selected Month: <strong>${avgMonthScore}</strong></p>
-              <p>Avg Score from Start to ${getMonthName(selectedMonth)}/20${selectedYear} (Excluding 0s): <strong>${avgTotalScore}</strong></p>
-          `;
-      }
+//           // ✅ 6️⃣ Display the results
+//           statsResults.innerHTML = `
+//               <p>Games in ${getMonthName(selectedMonth)}/20${selectedYear}: <strong>${filteredData.length}</strong></p>
+//               <p>Avg Score for Selected Month: <strong>${avgMonthScore}</strong></p>
+//               <p>Avg Score from Start to ${getMonthName(selectedMonth)}/20${selectedYear} (Excluding 0s): <strong>${avgTotalScore}</strong></p>
+//           `;
+//       }
 
         // ✅ Fix: Export data to a file
         function exportData() {
@@ -277,6 +390,20 @@ function displayLetterScoreStatsOne(letter) {
 
     document.getElementById("scoreDisplayOne").innerHTML = outputHTML;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
