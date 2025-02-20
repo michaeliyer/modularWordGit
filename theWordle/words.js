@@ -63,7 +63,7 @@ import { oldWords } from '../oldWords.js';
         'LATHE', 'LAUGH', 'LEACH', 'LEANT', 'LEASE', 'LEAST', 'LEFTY', 'LEGAL',
         'LEPER', 'LEVEL', 'LEVER', 'LIEGE', 'LIKEN', 'LIMBO', 'LIPID', 'LIVID', 'LLAMA',
         'LOAMY', 'LOATH', 'LOBBY', 'LODGE', 'LOGIN', 'LOOSE', 'LORRY', 'LOUSY', 'LUMEN',
-        'LUMPY', 'LUPUS', 'LURCH', 'LURID', 'LYMPH', 'LYRIC', 'MACHO', 'MACRO', 'MADLY',
+        'LUMPY', 'LUPUS', 'LURCH', 'LURID', 'LYMPH', 'LYRIC', 'MACHO', 'MACRO', 
         'MAFIA', 'MAKER', 'MAMMA', 'MAMMY', 'MANGE', 'MANGO', 'MANGY', 'MANIC',
         'MEATY', 'MECCA', 'MELEE', 'MIGHT', 'MILKY',
         'MINIM', 'MINOR', 'MINTY', 'MIRTH', 'MISER', 'MISSY', 'MOCHA', 'MODAL', 
