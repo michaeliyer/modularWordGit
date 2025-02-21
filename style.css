@@ -2,11 +2,12 @@ body {
     background-color: rgb(37, 37, 173);
 }
 
-h1 {
+.toggleShow {
   font-family: "Luckiest Guy", serif;
   text-align: center;
   margin-top: 2rem;
   color:rgb(222, 198, 16);
+  font-size: 2rem;
 }
 
 .linkBlock {
