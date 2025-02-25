@@ -36,9 +36,9 @@ import { wordleWords } from '../theWholeEnchilada.js';
             scoreDropdown.addEventListener("change", (event) => {
                 const selectedScore = Number(event.target.value);
                 let scoreCounts = {};
-                let totalGames = oldWords.length;
+                let totalGames = wordleWords.length;
     
-                oldWords.forEach(entry => {
+                wordleWords.forEach(entry => {
                     scoreCounts[entry.myScore] = (scoreCounts[entry.myScore] || 0) + 1;
                 });
     
@@ -60,7 +60,7 @@ function populateDropdowns() {
     let uniqueMonths = new Set();
     let uniqueYears = new Set();
 
-    oldWords.forEach(entry => {
+    wordleWords.forEach(entry => {
         // Normalize date format
         let [month, , year] = entry.gameDate.split("/");
         month = month.padStart(2, "0");
@@ -105,7 +105,7 @@ function calculateStats() {
     }
 
     // 1️⃣ Filter games for the selected month/year
-    let filteredData = oldWords.filter(entry => {
+    let filteredData = wordleWords.filter(entry => {
         // Normalize date format
         let [month, , year] = entry.gameDate.split("/");
         month = month.padStart(2, "0");
@@ -115,7 +115,7 @@ function calculateStats() {
     });
 
     // 2️⃣ Filter games from the start through the selected month/year (EXCLUDING `myScore === 0`)
-    let cumulativeData = oldWords.filter(entry => {
+    let cumulativeData = wordleWords.filter(entry => {
         // Normalize date format
         let [month, , year] = entry.gameDate.split("/");
         month = month.padStart(2, "0");
@@ -295,7 +295,7 @@ function displayLetterScoreStats(letter) {
     let totalWords = 0;
     let wordList = [];
 
-    oldWords.forEach(entry => {
+    wordleWords.forEach(entry => {
         if (entry.word.includes(letter)) {
             scoreCounts[entry.myScore] = (scoreCounts[entry.myScore] || 0) + 1;
             totalWords++;
@@ -364,7 +364,7 @@ function displayLetterScoreStatsOne(letter) {
     let wordGroups = { 0: [], 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [] };
 
     // ✅ Filter only words that START with the letter
-    oldWords.forEach(entry => {
+    wordleWords.forEach(entry => {
         if (entry.word.startsWith(letter)) {
             let score = entry.myScore || 0;
             scoreCounts[score]++;
