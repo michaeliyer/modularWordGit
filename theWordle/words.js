@@ -62,7 +62,7 @@ import { wordleWords, dailyWordsSmall } from '../theWholeEnchilada.js';
   }
   function handleWordInput() {
     const inputWord = document.getElementById("wordInput").value.toLowerCase();
-    const foundWord = oldWords.find((wordObj) => wordObj.word.toLowerCase() === inputWord);
+    const foundWord = wordleWords.find((wordObj) => wordObj.word.toLowerCase() === inputWord);
   
     if (foundWord) {
       const averageScoreUpToDate = calculateAverageScoreUpToDate(foundWord.gameDate);
@@ -90,7 +90,7 @@ import { wordleWords, dailyWordsSmall } from '../theWholeEnchilada.js';
   }
   
   function calculateAverageScoreUpToDate(date) {
-    const scoresUpToDate = oldWords.filter((wordObj) => new Date(wordObj.gameDate) <= new Date(date) && wordObj.myScore !== 0).map((wordObj) => wordObj.myScore);
+    const scoresUpToDate = wordleWords.filter((wordObj) => new Date(wordObj.gameDate) <= new Date(date) && wordObj.myScore !== 0).map((wordObj) => wordObj.myScore);
     const totalScore = scoresUpToDate.reduce((acc, score) => acc + score, 0);
     const averageScore = scoresUpToDate.length > 0 ? (totalScore / scoresUpToDate.length).toFixed(6) : 0;
     return averageScore;
@@ -98,7 +98,7 @@ import { wordleWords, dailyWordsSmall } from '../theWholeEnchilada.js';
   
   function lookupWordNumber() {
     const wordNumber = parseInt(document.getElementById("wordNumberInput").value);
-    const foundWord = oldWords.find((wordObj) => wordObj.wordNumber === wordNumber);
+    const foundWord = wordleWords.find((wordObj) => wordObj.wordNumber === wordNumber);
   
     const wordDetailsDiv = document.getElementById("wordDetails");
     if (foundWord) {
