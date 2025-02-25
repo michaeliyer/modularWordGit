@@ -1,8 +1,8 @@
-import { allWords } from "../allWords.js"; // Ensure correct import
+import { dailyWordsLarge } from "../theWholeEnchilada.js"; // Ensure correct import
 
 // Debugging check
 console.log("Is position.js running?");
-console.log("Word list loaded:", allWords);
+console.log("Word list loaded:", dailyWordsLarge);
 
 // Ensure DOM is loaded before execution
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,7 +27,7 @@ function filterWords() {
 
     console.log("Entered letters:", enteredLetters); // Debugging
 
-    const filteredWords = allWords.filter(word => {
+    const filteredWords = dailyWordsLarge.filter(word => {
         if (word.length !== 5) return false; // Ensure word is 5 letters
 
         // Only check non-empty letters

@@ -1,4 +1,4 @@
-import { oldWords } from '../oldWords.js';
+import { wordleWords } from '../theWholeEnchilada.js';
 
       document.addEventListener("DOMContentLoaded", () => {
       console.log("Script loaded. Initializing...");
