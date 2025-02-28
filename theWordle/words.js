@@ -1,8 +1,6 @@
 import { wordleWords, dailyWordsSmall } from '../theWholeEnchilada.js';
-
-
-  let filteredWords = [...wordleWords];
-  let history = [];
+let filteredWords = [...dailyWordsSmall];
+let history = [];
   
   document.addEventListener("DOMContentLoaded", () => {
     const resetButton1 = document.getElementById("resetButton1");
@@ -84,10 +82,19 @@ import { wordleWords, dailyWordsSmall } from '../theWholeEnchilada.js';
   }
   
   function resetFilteredWords() {
-    filteredWords = [...wordleWords];
+    filteredWords = [...dailyWordsSmall];
     displayResults(filteredWords);
     document.getElementById("filteredWords").innerHTML = "";
   }
+  // function resetFilteredWords() {
+  //   filteredWords = [...wordleWords];
+  //   displayResults(filteredWords);
+  //   document.getElementById("filteredWords").innerHTML = "";
+  // }
+
+
+
+
   
   function calculateAverageScoreUpToDate(date) {
     const scoresUpToDate = wordleWords.filter((wordObj) => new Date(wordObj.gameDate) <= new Date(date) && wordObj.myScore !== 0).map((wordObj) => wordObj.myScore);
