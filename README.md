@@ -1,3 +1,3 @@
-Combining all Wordle Stuff like a crazy SOB, and Loving Life Man!!!
+Combining all Wordle Stuff like a crazy SOB, and Loving Life Man!
 
 
