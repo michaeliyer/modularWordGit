@@ -1,5 +1,6 @@
-let x = "You're all idiots";
-console.log(x);
+let x = "You're all idiots.";
+let y = "And Assholes!!!!";
+console.log(x, y);
 
 
 
