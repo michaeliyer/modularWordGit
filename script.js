@@ -1,4 +1,4 @@
-let x = "You're all idiots.";
+let x = "You're all effing idiots.";
 let y = "And Assholes!!!!";
 let z = 19;
 console.log(x, y, "ALL ", z, " OF YOU Assholes!!!!");
