@@ -1,5 +1,5 @@
 let x = "You're all effing idiots.";
-let y = "And All Assholes And USURY FuckLickers!!!!";
+let y = "And All Assholes And PEEVE FuckLickers!!!!";
 let z = 19;
 console.log(x, y, "ALL ", z, " OF YOU Assholes!!!!");
 
