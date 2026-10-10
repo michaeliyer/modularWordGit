@@ -1,7 +1,7 @@
 let x = "You're all effing idiots.";
 let y = "And All Assholes And STREW FuckLickers!!!!";
 let z = 19;
-console.log(x, y, "ALL ", z, " OF YOU Assholes!!!!");
+console.log(x, y, "ALL ", z, " OF YOU ASSHOLES!!!!");
 
 
 
